@@ -3,6 +3,8 @@ package ProjetoJPA.DomainModel;
 
 import javax.persistence.*;
 
+import java.util.*;
+
 @Entity
 @Table(name="Clientes")
 public class Clientes {
@@ -15,6 +17,9 @@ public class Clientes {
 	@Column
 	private String nome;
 	
+	@OneToMany(orphanRemoval=true, cascade={CascadeType.ALL},mappedBy="cliente")
+	private List<Telefone> telefones;
+	
 	public int getId() {
 		return id;
 	}
@@ -26,6 +31,17 @@ public class Clientes {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public void addTelefone(String numero){
+		if(this.telefones==null) this.telefones = new LinkedList<Telefone>();
+		
+		Telefone tmp = new Telefone();
+		tmp.setNumero(numero);
+		tmp.setCliente(this);
+		
+		if(this.telefones.add(tmp))
+			System.out.println("Inseriu");
 	}
 
 }

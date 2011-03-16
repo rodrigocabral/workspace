@@ -3,9 +3,10 @@
 	<persistence-unit name="ProjetoJPA">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>ProjetoJPA.DomainModel.Clientes</class>
+		<class>ProjetoJPA.DomainModel.Telefone</class>
 		<properties>
             <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://note01:1030;instance=SQLEXPRESS;databaseName=Clientes"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://note01:1032;instance=SQLEXPRESS;databaseName=Clientes"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value="sa123"/>            
         </properties>

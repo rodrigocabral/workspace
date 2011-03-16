@@ -14,6 +14,9 @@ public class Main {
 		obj.setNome("blá blá");
 		try {
 			repo.Save(obj);
+			obj.addTelefone("32212011");
+			obj.addTelefone("32222222");
+			repo.Save(obj);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
