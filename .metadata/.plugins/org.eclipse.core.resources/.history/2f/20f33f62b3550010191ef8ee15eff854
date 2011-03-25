@@ -1,0 +1,113 @@
+package Vendas.DomainModel;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="vendas")
+
+public class Venda {
+	
+	private static final Cliente Clientes_Codigo = null;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="Codigo")
+	private int id;
+	
+	@Column
+	private float ValorTotal;
+	
+	//@Temporal(TemporalType.DATE)
+	@Column
+	private String Data;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Clientes_Codigo")
+	private Cliente Cliente;
+	
+	
+	@OneToMany(orphanRemoval=true, cascade={CascadeType.ALL},mappedBy="Venda")
+	private List<ItensVenda> itens;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public float getValorTotal() {
+		return ValorTotal;
+	}
+
+	public void setValorTotal(float valorTotal) {
+		ValorTotal = valorTotal;
+	}
+
+	public String getData() {
+		return Data;
+	}
+
+	public void setData(String data) {
+		Data = data;
+	}
+	
+	//Arrumar daqui pra baixo
+	
+	//Criar a função intens do tipo List<IntensVenda>
+
+	public Cliente getClientes_Codigo() {
+		return Clientes_Codigo;
+	}
+
+	public void setClientes_Codigo(Cliente clientes_Codigo) {
+		Clientes_Codigo = clientes_Codigo;
+	}
+	
+	
+	
+	public void addItem(Produto p, int qte){
+		ItensVenda item = new ItensVenda();
+		//item.setVenda(this);
+		item.setProduto(p);
+		item.setQuantidade(qte);
+		itens.add(item);
+		
+		this.ValorTotal += p.getPrecoUnitario() * qte;
+		
+		
+	}
+	
+	
+
+	
+	
+
+	
+	
+	
+}
+/*
+ * Query q = "select p from produto p where nome like ?";//Consulta o produto onde o nome conter o que for setado em ?
+ * 
+ * q.setMaxResoult(10)//Quantidade de resultados que serão retornados
+ * .setFirstResult(11)//retorna 10 proximos resultados a partir do 11
+ * .setParameter(0, "Bicicleta")//Seta o parametro Bicicleta em ?
+ * .getResultList();//Retorna a lista de resultado
+ * 
+ */

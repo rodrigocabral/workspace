@@ -1,0 +1,31 @@
+package Vendas.Presentation;
+
+import Vendas.DataAccess.ClienteRepository;
+import Vendas.DataAccess.ProdutoRepository;
+import Vendas.DomainModel.Cliente;
+import Vendas.DomainModel.Produto;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		ClienteRepository repo = new ClienteRepository();
+		
+		Cliente cc = new Cliente();
+		
+		cc.setNome("Rodrigo");
+		try {
+			repo.Save(cc);
+			
+		}
+		
+		catch(Exception ex){
+			System.out.println("Ocorreu o seguinte erro: "+ex.getMessage());
+		}
+		
+		System.out.println("LALA");
+		
+	}
+
+}

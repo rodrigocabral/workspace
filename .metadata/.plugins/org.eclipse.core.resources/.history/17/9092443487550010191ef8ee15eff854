@@ -1,0 +1,40 @@
+package ProjetoJPA.DomainModel;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="produto")
+public class Produto {
+
+	@Column(name="Codigo")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@OneToMany(fetch=FetchType.LAZY)
+	@Id
+	private int Codigo;
+	
+	@Column
+	private String Nome;
+	
+	@Column
+	private float PrecoUnitario;
+	
+	public int getCodigo() {
+		return Codigo;
+	}
+	public void setCodigo(int codigo) {
+		Codigo = codigo;
+	}
+	public String getNome() {
+		return Nome;
+	}
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+	public float getPrecoUnitario() {
+		return PrecoUnitario;
+	}
+	public void setPrecoUnitario(float precoUnitario) {
+		PrecoUnitario = precoUnitario;
+	}
+	
+}

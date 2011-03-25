@@ -1,0 +1,60 @@
+package ProjetoJPA.DataAccess;
+import javax.persistence.*;
+
+import ProjetoJPA.DomainModel.*;
+
+public class ClientesRepository {
+	
+	private EntityManager manager;//-- Gerenciador de entidade. É uma classe que vai gerar as consultas SQL. 
+	private EntityManagerFactory factory;//-- É uma classe que prepara todo o caminho para o EntityManager.
+	private EntityTransaction transaction;
+	
+	
+	public ClientesRepository(){
+		factory = Persistence.createEntityManagerFactory("TesteJPA");
+		manager = factory.createEntityManager();
+	}
+	
+
+	public void Save(Cliente obj) throws Exception{
+		try{
+			transaction = manager.getTransaction();
+			transaction.begin();
+			manager.persist(obj);
+			transaction.commit();
+		}
+		
+		catch(Exception ex){
+			transaction.rollback();
+			throw ex;
+		}
+		
+	}
+	
+	public void Delte(Cliente obj) throws Exception{
+		try{
+			transaction = manager.getTransaction();
+			transaction.begin();
+			manager.remove(obj);
+			transaction.commit();
+		}
+		
+		catch(Exception ex){
+			transaction.rollback();
+			throw ex;
+		}
+		
+	}
+	
+	public Cliente Open(int id) throws Exception{
+		try{
+			return manager.find(Cliente.class, id);//Carrega os dados do banco cujo id é correspondente e carrega no obj
+		}
+		
+		catch(Exception ex){
+			throw ex;
+		}
+		
+	}
+
+}

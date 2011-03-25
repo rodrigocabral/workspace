@@ -1,0 +1,14 @@
+package Vendas.DomainModel;
+
+import javax.annotation.Generated;
+import javax.persistence.metamodel.SingularAttribute;
+import javax.persistence.metamodel.StaticMetamodel;
+
+@Generated(value="Dali", date="2011-03-23T16:55:16.560-0300")
+@StaticMetamodel(ItensVenda.class)
+public class ItensVenda_ {
+	public static volatile SingularAttribute<ItensVenda, Integer> Codigo;
+	public static volatile SingularAttribute<ItensVenda, Produto> Produto;
+	public static volatile SingularAttribute<ItensVenda, Venda> Venda;
+	public static volatile SingularAttribute<ItensVenda, Float> Quantidade;
+}

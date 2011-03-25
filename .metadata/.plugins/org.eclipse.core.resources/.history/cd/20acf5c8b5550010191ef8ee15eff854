@@ -1,0 +1,46 @@
+package Vendas.Presentation;
+
+import Vendas.DataAccess.ClienteRepository;
+import Vendas.DataAccess.ItensVendaRepository;
+import Vendas.DataAccess.ProdutoRepository;
+import Vendas.DataAccess.VendasRepository;
+import Vendas.DomainModel.Cliente;
+import Vendas.DomainModel.ItensVenda;
+import Vendas.DomainModel.Produto;
+import Vendas.DomainModel.Venda;
+
+
+public class Main {
+
+	public static void main(String[] args) {		
+		
+		ItensVenda i = new ItensVenda();
+		ItensVendaRepository ir = new ItensVendaRepository();
+		Venda v = new Venda();
+		VendasRepository vr = new VendasRepository();
+		Produto p = new Produto();
+		Produto p2 = new Produto();
+		ProdutoRepository pr = new ProdutoRepository();
+		Cliente c = new Cliente();
+		ClienteRepository cr = new ClienteRepository();
+		
+		/*try {
+			
+			v.setCliente(cr.Open(2));
+			v.addItem(p, 2);
+			v.addItem(p2, 2);
+			
+			vr.Save(v);
+			
+		
+		}
+		catch(Exception ex){
+			System.out.println("Erro: "+ex.getMessage());
+		}
+	
+		*/
+		System.out.println("Pronto");
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package Vendas.DomainModel;
+
+public class venda {
+
+}
+/*
+ * Query q = "select p from produto p where nome like ?";//Consulta o produto onde o nome conter o que for setado em ?
+ * 
+ * q.setMaxResoult(10)//Quantidade de resultados que serão retornados
+ * .setFirstResult(11)//retorna 10 proximos resultados a partir do 11
+ * .setParameter(0, "Bicicleta")//Seta o parametro Bicicleta em ?
+ * .getResultList();//Retorna a lista de resultado
+ * 
+ */

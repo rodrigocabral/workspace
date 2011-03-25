@@ -1,0 +1,35 @@
+package Vendas.Presentation;
+
+import Vendas.DataAccess.ProdutoRepository;
+import Vendas.DomainModel.Produto;
+
+
+public class Main {
+
+	public static void main(String[] args) {		
+		
+		ProdutoRepository r = new ProdutoRepository();
+		
+		
+		Produto p = new Produto();
+		
+		p.setNome("Caneta");
+		p.setPrecoUnitario(2);
+		
+		p.setNome("Borracha");
+		p.setPrecoUnitario(2);
+		
+		try {
+			r.Save(p);
+			
+		}
+		
+		catch(Exception ex){
+			System.out.println("Ocorreu o seguinte erro: "+ex.getMessage());
+		}
+		
+		System.out.println("Pronto");
+		
+	}
+
+}

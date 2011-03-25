@@ -1,0 +1,5 @@
+package Vendas.DomainModel;
+
+public class IClienteRepository {
+
+}

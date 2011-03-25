@@ -1,0 +1,35 @@
+package Vendas.Presentation;
+
+import Vendas.DataAccess.ProdutoRepository;
+import Vendas.DataAccess.VendasRepository;
+import Vendas.DomainModel.Produto;
+import Vendas.DomainModel.Venda;
+
+
+public class Main {
+
+	public static void main(String[] args) {		
+		
+		Venda v = new Venda();
+		VendasRepository r = new VendasRepository();
+		
+		v.setClientes_Codigo(2);
+		//v.setData();
+		
+		v.setValorTotal(3);
+		
+		
+		try {
+			r.Save(v);
+			
+		}
+		
+		catch(Exception ex){
+			System.out.println("Ocorreu o seguinte erro: "+ex.getMessage());
+		}
+		
+		System.out.println("Pronto");
+		
+	}
+
+}

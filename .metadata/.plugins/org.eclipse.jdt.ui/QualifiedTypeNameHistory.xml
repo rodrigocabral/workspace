@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Vendas.DomainModel.Produto"/>
+<fullyQualifiedTypeName name="javax.persistence.Temporal"/>
+<fullyQualifiedTypeName name="Vendas.DataAccess.ItensVendaRepository"/>
+<fullyQualifiedTypeName name="Vendas.DataAccess.ProdutoRepository"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="Vendas.DataAccess.VendasRepository"/>
+<fullyQualifiedTypeName name="Vendas.DomainModel.Cliente"/>
+<fullyQualifiedTypeName name="Vendas.DataAccess.ClienteRepository"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="Vendas.DomainModel.ItensVenda"/>
+<fullyQualifiedTypeName name="Vendas.DomainModel.Venda"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+</qualifiedTypeNameHistroy>

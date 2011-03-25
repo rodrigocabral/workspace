@@ -1,0 +1,68 @@
+package Vendas.Presentation;
+
+import Vendas.DataAccess.ClienteRepository;
+import Vendas.DataAccess.ItensVendaRepository;
+import Vendas.DataAccess.ProdutoRepository;
+import Vendas.DataAccess.VendasRepository;
+import Vendas.DomainModel.Cliente;
+import Vendas.DomainModel.ItensVenda;
+import Vendas.DomainModel.Produto;
+import Vendas.DomainModel.Venda;
+
+
+public class Main {
+
+	public static void main(String[] args) {		
+		
+		ItensVenda i = new ItensVenda();
+		ItensVendaRepository ir = new ItensVendaRepository();
+		Venda v = new Venda();
+		VendasRepository vr = new VendasRepository();
+		Produto p = new Produto();
+		Produto p2 = new Produto();
+		ProdutoRepository pr = new ProdutoRepository();
+		Cliente c = new Cliente();
+		ClienteRepository cr = new ClienteRepository();
+		
+		try {
+		c = cr.Open(2);
+		v.setClientes_Codigo(c.getId());
+		vr.Save(v);
+		p = pr.Open(5);
+		i.setProduto(p);
+		i.setQuantidade(1);
+		i.setVenda(v);
+		ir.Save(i);
+		/*p2 = pr.Open(6);
+		i.setProduto(p2);
+		i.setQuantidade(2);
+		i.setVenda(v);
+		ir.Save(i);*/
+		
+		v.setValorTotal(p.getPrecoUnitario() * i.getQuantidade());
+		
+		vr.Save(v);
+		
+		//v.setValorTotal(i.getProduto().getPrecoUnitario() * i.getQuantidade());
+		
+	
+		}
+		catch(Exception ex){
+			System.out.println("Erro: "+ex.getMessage());
+		}
+		
+		
+		try {
+			
+			
+		}
+		
+		catch(Exception ex){
+			System.out.println("Ocorreu o seguinte erro: "+ex.getMessage());
+		}
+		
+		System.out.println("Pronto");
+		
+	}
+
+}

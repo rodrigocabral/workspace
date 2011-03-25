@@ -1,0 +1,48 @@
+package Vendas.DataAccess;
+
+
+import java.util.List;
+
+import Vendas.DomainModel.Cliente;
+import Vendas.DomainModel.IClienteRepository;
+
+public class ClienteRepository extends GenericRepository<Cliente> 
+	implements IClienteRepository 
+{
+
+	public ClienteRepository() {
+		super(Cliente.class);
+	}
+
+	@Override
+	public List<Cliente> getTop10ByName() {
+		return getManager().createQuery("select c from Cliente c order by c.nome", Cliente.class)
+		.setMaxResults(10).getResultList();
+	}
+
+	@Override
+	public void Save(Cliente obj) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Delete(Cliente obj) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Cliente Open(int k) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Cliente> getList() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}
